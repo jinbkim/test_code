@@ -1,3 +1,6 @@
+##########################
+# 코드를 단순화 시킬 macro 작성
+##########################
 NAME	= test
 HELLO	= hello
 BYE		= bye
@@ -7,6 +10,11 @@ RM		= rm -rf
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror -g -fsanitize=address
 
+
+#####################
+# target : dependency 
+#	command
+#####################
 all 	: $(NAME)
 
 clean	:
@@ -27,4 +35,4 @@ $(NAME) :
 		make -C $(HELLO)
 		make -C $(BYE)
 		make -C $(MAIN)
-		$(CC) $(CFLAGS) -o test $(HELLO)/$(OBJ) $(BYE)/$(OBJ) $(MAIN)/$(OBJ)
+		$(CC) $(CFLAGS) -o $(NAME) $(HELLO)/$(OBJ) $(BYE)/$(OBJ) $(MAIN)/$(OBJ)
